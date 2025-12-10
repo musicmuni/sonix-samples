@@ -401,9 +401,17 @@ withContext(Dispatchers.IO) {
 }
 ```
 
-## Additional Resources
+## Documentation
 
-For full API documentation and integration guides, contact your Musicmuni account manager.
+Complete documentation is available in the `docs/` directory:
+
+- **[Getting Started](docs/Getting-Started.md)** - Quick start guide, installation, and initialization
+- **[User Guide](docs/User-Guide.md)** - Core features: recording, playback, multi-track, MIDI, and metronome
+- **[API Reference](docs/API-Reference.md)** - Complete API documentation for all classes and methods
+- **[Advanced Topics](docs/Advanced-Topics.md)** - Zero-allocation processing, custom encoders, and performance optimization
+- **[Migration from Legacy](docs/Migration-from-Legacy.md)** - Guide for migrating from older audio libraries
+
+For licensing information and support, contact your Musicmuni account manager.
 
 ## License
 
