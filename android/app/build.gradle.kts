@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -16,15 +18,20 @@ android {
         versionName = "1.0"
 
         // Read API key from local.properties
-        val localProperties = java.util.Properties()
         val localPropertiesFile = rootProject.file("local.properties")
-        if (localPropertiesFile.exists()) {
-            localProperties.load(localPropertiesFile.inputStream())
-        }
-        val apiKey = localProperties.getProperty("sonix.apiKey")
-            ?: throw GradleException(
-                "Sonix API key not found. Please add 'sonix.apiKey=YOUR_API_KEY' to local.properties"
+        if (!localPropertiesFile.exists()) {
+            throw GradleException(
+                "local.properties file not found. Please create it and add 'sonix.apiKey=YOUR_API_KEY'"
             )
+        }
+
+        val properties = Properties()
+        properties.load(localPropertiesFile.inputStream())
+        val apiKey = properties.getProperty("sonix.apiKey")
+            ?: throw GradleException(
+                "Sonix API key not found in local.properties. Please add 'sonix.apiKey=YOUR_API_KEY'"
+            )
+
         buildConfigField("String", "SONIX_API_KEY", "\"$apiKey\"")
     }
 
