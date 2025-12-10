@@ -12,90 +12,113 @@ Both sample apps showcase all Sonix library capabilities:
 4. **MIDI Synthesis** - Generate audio from MIDI notes using SoundFont files
 5. **Metronome** - Configurable click track with visual beat indicator
 6. **Audio Decoding** - Decode audio files to raw PCM data with metadata display
-7. **File Parsing** - Parse lesson files (.pitchPP, .notes, .trans) with data summaries
 
 ## Android Sample
 
-### Building
+### Setup Instructions
+
+#### 1. Get the Sonix AAR
+
+Contact your account manager at Musicmuni to obtain the Sonix AAR library file, then place it at:
+```
+android/app/libs/sonix.aar
+```
+
+#### 2. Configure API Key
+
+**IMPORTANT:** You need a valid Sonix API key to use the library.
+
+1. Navigate to `android/`
+2. Copy the template file:
+   ```bash
+   cp local.properties.template local.properties
+   ```
+3. Open `local.properties` and replace `YOUR_API_KEY_HERE` with your actual API key
+
+**Note:** `local.properties` is gitignored to prevent accidentally committing your API key.
+
+#### 3. Build and Run
+
+Open the project in Android Studio and run the app, or use the command line:
 
 ```bash
-cd samples/android
-
-# Build debug APK
+cd android
 ./gradlew :app:assembleDebug
-
-# The APK will be at app/build/outputs/apk/debug/app-debug.apk
 ```
 
 ### Requirements
 
 - Android SDK 24+ (Android 7.0 Nougat)
 - Kotlin 2.2.20
-- Sonix AAR library (copy to `app/libs/`)
+- Jetpack Compose
+- Sonix AAR library
 
 ### Project Structure
 
 ```
 android/
 ├── app/
-│   ├── src/main/
-│   │   ├── kotlin/.../sample/
-│   │   │   ├── MainActivity.kt          # Main entry point
-│   │   │   ├── RecordingSection.kt      # Recording with M4A/MP3, level metering
-│   │   │   ├── PlaybackSection.kt       # Playback with pitch/volume/looping
-│   │   │   ├── MultiTrackSection.kt     # Multi-track synchronized playback
-│   │   │   ├── MidiSection.kt           # MIDI synthesis with FluidSynth
-│   │   │   ├── MetronomeSection.kt      # Configurable metronome
-│   │   │   ├── DecodingSection.kt       # Audio file decoding
-│   │   │   └── ParserSection.kt         # Lesson file parsing
-│   │   ├── assets/                      # Audio and data files
-│   │   └── res/                         # Android resources
+│   ├── src/main/kotlin/.../sample/
+│   │   ├── MainActivity.kt          # Main entry point with mode switcher
+│   │   ├── RecordingSection.kt      # Recording with M4A/MP3, level metering
+│   │   ├── PlaybackSection.kt       # Playback with pitch/volume/looping
+│   │   ├── MultiTrackSection.kt     # Multi-track synchronized playback
+│   │   ├── MidiSection.kt           # MIDI synthesis with FluidSynth
+│   │   ├── MetronomeSection.kt      # Configurable metronome
+│   │   └── DecodingSection.kt       # Audio file decoding
+│   ├── assets/                      # Audio and data files
 │   └── libs/
-│       └── sonix.aar                    # Sonix library
-├── build.gradle.kts
-└── settings.gradle.kts
+│       └── sonix.aar                # Place Sonix library here
+└── local.properties                 # API key configuration (gitignored)
 ```
 
-### Dependencies
+### Troubleshooting
 
-The sample app requires the following dependencies (already configured):
+#### Build fails with "Sonix API key not found"
 
-```kotlin
-dependencies {
-    implementation(files("libs/sonix.aar"))
+Make sure you've:
+1. Created `local.properties` from the template
+2. Added your API key: `sonix.apiKey=YOUR_KEY`
 
-    // Required by Sonix
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
-    implementation("io.github.aakira:napier:2.7.1")
-    implementation("com.squareup.okio:okio:3.9.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.5.0")
-}
-```
+#### AAR not found
+
+Make sure `sonix.aar` is placed in `android/app/libs/` directory.
 
 ## iOS Sample
 
-### Building
+### Setup Instructions
 
-1. Build the Sonix XCFramework first:
+#### 1. Get the Sonix XCFramework
 
+Contact your account manager at Musicmuni to obtain the Sonix XCFramework, then place it at:
+```
+ios/SonixSample/Frameworks/sonix.xcframework
+```
+
+#### 2. Configure API Key
+
+**IMPORTANT:** You need a valid Sonix API key to use the library.
+
+1. Navigate to `ios/SonixSample/SonixSample/`
+2. Copy the template file:
    ```bash
-   cd library
-   ./gradlew assembleXCFramework
+   cp Config.swift.template Config.swift
    ```
+3. Open `Config.swift` and replace `YOUR_API_KEY_HERE` with your actual API key
 
-2. Open the Xcode project:
+**Note:** `Config.swift` is gitignored to prevent accidentally committing your API key.
 
-   ```bash
-   open samples/ios/SonixSample/SonixSample.xcodeproj
-   ```
+#### 3. Link the Framework in Xcode
 
-3. Link the XCFramework:
-   - In Xcode, go to Project Settings > General > Frameworks
-   - Add `library/build/XCFrameworks/release/sonix.xcframework`
+1. Open `ios/SonixSample/SonixSample.xcodeproj` in Xcode
+2. Select the project in the navigator
+3. Go to the **SonixSample** target → **General** tab
+4. Under **Frameworks, Libraries, and Embedded Content**, add `sonix.xcframework`
+5. Set it to **Embed & Sign**
 
-4. Build and run on simulator or device
+#### 4. Build and Run
+
+Select a simulator or device and build the project in Xcode.
 
 ### Requirements
 
@@ -110,20 +133,52 @@ dependencies {
 ios/SonixSample/
 ├── SonixSample.xcodeproj/
 ├── SonixSample/
-│   ├── SonixSampleApp.swift             # App entry point
-│   ├── ContentView.swift                # Main view
+│   ├── SonixSampleApp.swift         # App entry point
+│   ├── ContentView.swift            # Main scrollable view
+│   ├── Config.swift                 # API key configuration (gitignored)
 │   ├── Sections/
-│   │   ├── RecordingSection.swift       # Recording UI
-│   │   ├── PlaybackSection.swift        # Playback UI
-│   │   ├── MultiTrackSection.swift      # Multi-track UI
-│   │   ├── MidiSection.swift            # MIDI synthesis UI
-│   │   ├── MetronomeSection.swift       # Metronome UI
-│   │   ├── DecodingSection.swift        # Audio decoding UI
-│   │   └── ParserSection.swift          # File parsing UI
-│   ├── Resources/                       # Audio assets
-│   ├── Assets.xcassets/
-│   └── Info.plist
+│   │   ├── RecordingSection.swift   # Recording UI
+│   │   ├── PlaybackSection.swift    # Playback UI
+│   │   ├── MultiTrackSection.swift  # Multi-track UI
+│   │   ├── MidiSection.swift        # MIDI synthesis UI
+│   │   ├── MetronomeSection.swift   # Metronome UI
+│   │   └── DecodingSection.swift    # Audio decoding UI
+│   └── Resources/                   # Audio assets
+│       ├── sample.m4a
+│       ├── vocal.m4a
+│       ├── sama_click.wav
+│       ├── beat_click.wav
+│       └── harmonium.sf2
+└── Frameworks/
+    └── sonix.xcframework            # Place Sonix framework here
 ```
+
+### Troubleshooting
+
+#### Build fails with "Cannot find 'Config' in scope"
+
+Make sure you've:
+1. Created `Config.swift` from the template
+2. Added your API key to the file
+3. Added `Config.swift` to the Xcode project (right-click → Add Files)
+
+#### Framework not found
+
+Make sure `sonix.xcframework` is:
+1. Placed in `ios/SonixSample/Frameworks/`
+2. Added to the Xcode project under **Frameworks, Libraries, and Embedded Content**
+3. Set to **Embed & Sign**
+
+## Getting a Sonix License
+
+To use the Sonix library in your own projects, you need:
+
+1. **API Key** - Required for SDK initialization and usage tracking
+2. **Library Files** - Platform-specific distribution files:
+   - Android: `sonix-YYYY.MMDD.HHMM.aar`
+   - iOS: `sonix-YYYY.MMDD.HHMM.xcframework`
+
+Contact your account manager at Musicmuni for licensing information.
 
 ## Audio Assets
 
@@ -139,6 +194,37 @@ Both sample apps include the following audio and data files:
 | `Alankaar 01.pitchPP` | Pitch contour data for parsing demo |
 | `Alankaar 01.notes` | Note annotations for parsing demo |
 | `Alankaar 01.trans` | Transcription JSON for parsing demo |
+
+## API Modes (Android)
+
+The Android sample app includes a mode switcher to demonstrate two API approaches:
+
+### Simple API Mode
+
+- **Best for**: Quick prototyping and simple use cases
+- **Characteristics**: Simplified lifecycle management, automatic resource cleanup
+- **Use when**: You want minimal code and don't need fine-grained control
+
+Example features shown:
+
+- Simple recording with automatic encoder setup
+- Basic playback with minimal configuration
+- Streamlined multi-track playback
+
+### Advanced API Mode
+
+- **Best for**: Production apps requiring full control
+- **Characteristics**: Explicit resource management, detailed configuration options
+- **Use when**: You need fine-grained control over audio processing, custom encoders, or advanced features
+
+Example features shown:
+
+- Manual lifecycle management with proper cleanup
+- Detailed configuration of recording sessions
+- Custom buffer processing with zero-allocation patterns
+- Advanced playback controls with fade effects
+
+**Toggle between modes** using the segmented control at the top of the app to compare the two approaches.
 
 ## Usage Notes
 
@@ -186,44 +272,106 @@ Both sample apps include the following audio and data files:
 - Press "Decode sample.m4a" to decode the asset file
 - Displays: sample rate, channels, duration, PCM data size
 
-### File Parsing
-
-- **Parse .pitchPP**: Pitch contour with time/frequency arrays
-- **Parse .notes**: Note annotations with labels and timing
-- **Parse .trans**: JSON transcription with segments and lyrics
-
 ## Key API Patterns
 
-### Lifecycle Management (Compose)
+### Android (Compose) - Initialization
+
+```kotlin
+import com.musicmuni.sonix.Sonix
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Initialize Sonix with your API key
+        Sonix.initialize(BuildConfig.SONIX_API_KEY, this)
+
+        setContent {
+            // Your app content
+        }
+    }
+}
+```
+
+### Android - Lifecycle Management
 
 ```kotlin
 @Composable
-fun Feature() {
+fun AudioFeature() {
     var player by remember { mutableStateOf<AudioPlayer?>(null) }
 
     // Initialize
     LaunchedEffect(Unit) {
         player = createAudioPlayer()
-        // ...
+        player?.load(filePath)
     }
 
     // Cleanup
     DisposableEffect(Unit) {
-        onDispose { player?.release() }
+        onDispose {
+            player?.release()
+        }
     }
 }
 ```
 
-### Reactive State
+### Android - Reactive State
 
 ```kotlin
-// Observe with Flow collection
-launch {
-    player.isPlaying.collect { playing -> /* update UI */ }
+// Observe player state with Flow
+val isPlaying by player.isPlaying.collectAsState(initial = false)
+val currentTime by player.currentTime.collectAsState(initial = 0L)
+
+// Use in Compose UI
+Button(onClick = { player.play() }) {
+    Text(if (isPlaying) "Pause" else "Play")
 }
-launch {
-    player.currentTime.collect { timeMs -> /* update UI */ }
+```
+
+### iOS (SwiftUI) - Initialization
+
+```swift
+import sonix
+
+@main
+struct MyApp: App {
+    init() {
+        // Initialize Sonix with your API key
+        Sonix.initialize(apiKey: Config.sonixAPIKey)
+
+        // Optional: Enable debug logging
+        Sonix.initializeLogging()
+    }
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
 }
+```
+
+### iOS - Observing State
+
+Kotlin StateFlow is exposed as an async sequence in Swift:
+
+```swift
+Task {
+    for await playing in player.isPlaying {
+        await MainActor.run {
+            self.isPlaying = playing as! Bool
+        }
+    }
+}
+```
+
+### iOS - Async Operations
+
+Kotlin suspend functions become async in Swift:
+
+```swift
+let loaded = try await player.load(path: audioPath)
+try await session.stopAndSave(outputPath: outputPath)
 ```
 
 ### Zero-Allocation Audio Processing
@@ -235,7 +383,8 @@ session.audioFlow.collect { buffer ->
     val floatBuffer = bufferPool.acquire()
     val sampleCount = buffer.fillFloatSamples(floatBuffer)
 
-    // Process audio (e.g., RMS, pitch detection)
+    // Process audio (e.g., RMS calculation, pitch detection)
+    val rms = calculateRMS(floatBuffer, sampleCount)
 
     bufferPool.release(floatBuffer)
 }
@@ -244,13 +393,18 @@ session.audioFlow.collect { buffer ->
 ### File Operations on IO Dispatcher
 
 ```kotlin
+// Always perform file I/O on the IO dispatcher
 withContext(Dispatchers.IO) {
     player.load(filePath)
     // or
-    AudioDecoder.decode(filePath)
+    val decodedData = AudioDecoder.decode(filePath)
 }
 ```
 
+## Additional Resources
+
+For full API documentation and integration guides, contact your Musicmuni account manager.
+
 ## License
 
-These samples are provided under the same license as the Sonix library.
+These samples demonstrate usage of the Sonix KMP audio library. The Sonix library is proprietary software licensed by Musicmuni.
