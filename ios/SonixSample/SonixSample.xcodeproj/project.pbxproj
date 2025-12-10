@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		9F32D7732EE601F4001641DC /* sonix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD77A6F2EE6000000A1D752 /* sonix.xcframework */; };
 		9F32D7742EE601F4001641DC /* sonix.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD77A6F2EE6000000A1D752 /* sonix.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9F335A252EE60F8E00C19D56 /* sonix-native.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD77A702EE6000000A1D752 /* sonix-native.xcframework */; };
-		9F335A262EE60F8E00C19D56 /* sonix-native.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD77A702EE6000000A1D752 /* sonix-native.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,7 +18,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9F335A262EE60F8E00C19D56 /* sonix-native.xcframework in Embed Frameworks */,
 				9F32D7742EE601F4001641DC /* sonix.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -31,25 +28,11 @@
 /* Begin PBXFileReference section */
 		9FD77A552EE5FBFF00A1D752 /* SonixSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonixSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD77A6F2EE6000000A1D752 /* sonix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = sonix.xcframework; sourceTree = "<group>"; };
-		9FD77A702EE6000000A1D752 /* sonix-native.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "sonix-native.xcframework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		9FD77A802EE6100000A1D752 /* Exceptions for "SonixSample" folder in "SonixSample" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 9FD77A542EE5FBFF00A1D752 /* SonixSample */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9FD77A572EE5FBFF00A1D752 /* SonixSample */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				9FD77A802EE6100000A1D752 /* Exceptions for "SonixSample" folder in "SonixSample" target */,
-			);
 			path = SonixSample;
 			sourceTree = "<group>";
 		};
@@ -60,7 +43,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F335A252EE60F8E00C19D56 /* sonix-native.xcframework in Frameworks */,
 				9F32D7732EE601F4001641DC /* sonix.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				9FD77A6F2EE6000000A1D752 /* sonix.xcframework */,
-				9FD77A702EE6000000A1D752 /* sonix-native.xcframework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -305,8 +286,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W37Q295UQ3;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = SonixSample/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs microphone access to record audio.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,8 +316,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = W37Q295UQ3;
 				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = SonixSample/Info.plist;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app needs microphone access to record audio.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
