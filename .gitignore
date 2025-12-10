@@ -1,0 +1,64 @@
+# ==========================
+# IDE / Editor Directories
+# ==========================
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# ==========================
+# Gradle / Android
+# ==========================
+.gradle/
+.kotlin/
+build/
+*/build/
+local.properties
+*.hprof
+*.aprof
+generated/
+bin/
+.cxx/
+.externalNativeBuild/
+
+# ==========================
+# iOS / Xcode
+# ==========================
+DerivedData/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# ==========================
+# API Keys / Config
+# ==========================
+# Android
+android/local.properties
+
+# iOS
+ios/SonixSample/SonixSample/Config.swift
+
+# ==========================
+# Frameworks & Libraries (built from main library)
+# ==========================
+# Android AAR files
+android/app/libs/
+
+# iOS Frameworks
+*.framework
+*.xcframework
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

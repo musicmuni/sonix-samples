@@ -1,0 +1,14 @@
+import Foundation
+
+/// Configuration file for API keys and secrets.
+/// DO NOT commit Config.swift to git!
+///
+/// Setup instructions:
+/// 1. Copy this file to Config.swift
+/// 2. Replace YOUR_API_KEY_HERE with your actual Sonix API key
+/// 3. Build and run the app
+enum Config {
+    /// Sonix API Key
+    /// Get your API key from https://musicmuni.com/sonix
+    static let sonixAPIKey = "YOUR_API_KEY_HERE"
+}

@@ -1,0 +1,8 @@
+## DO NOT commit local.properties to git!
+## Copy this file to local.properties and replace YOUR_API_KEY_HERE with your actual API key
+
+sdk.dir=/path/to/your/android/sdk
+
+# Sonix API Key
+# Get your API key from https://musicmuni.com/sonix
+sonix.apiKey=YOUR_API_KEY_HERE
