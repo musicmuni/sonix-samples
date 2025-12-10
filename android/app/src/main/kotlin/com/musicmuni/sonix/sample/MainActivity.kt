@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.musicmuni.sonix.Sonix
+import com.musicmuni.sonix.SonixKilledException
 import com.musicmuni.sonix.sample.components.OptionChip
 import com.musicmuni.sonix.sample.simplified.*
 import io.github.aakira.napier.DebugAntilog
@@ -41,7 +42,45 @@ class MainActivity : ComponentActivity() {
         Napier.base(DebugAntilog())
 
         // Initialize Sonix SDK with API key from BuildConfig
-        Sonix.initialize(BuildConfig.SONIX_API_KEY, this)
+        // This validates the API key synchronously and throws if invalid
+        try {
+            Sonix.initialize(BuildConfig.SONIX_API_KEY, this)
+        } catch (e: SonixKilledException) {
+            // Invalid or revoked API key - show error and exit
+            setContent {
+                MaterialTheme {
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.spacedBy(16.dp)
+                            ) {
+                                Text(
+                                    "License Error",
+                                    style = MaterialTheme.typography.headlineMedium,
+                                    color = MaterialTheme.colorScheme.error
+                                )
+                                Text(
+                                    e.message ?: "Invalid or revoked API key",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    "Contact support@musicmuni.com",
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+            return
+        }
 
         // Request microphone permission
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
