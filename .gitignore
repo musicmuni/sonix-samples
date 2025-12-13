@@ -49,6 +49,7 @@ ios/SonixSample/SonixSample/Config.swift
 android/app/libs/
 
 # iOS Frameworks
+ios/SonixSample/Frameworks/
 *.framework
 *.xcframework
 
