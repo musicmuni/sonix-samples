@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// Audio Decoding & Encoding Section using SonixDecoder and SonixEncoder.
 ///

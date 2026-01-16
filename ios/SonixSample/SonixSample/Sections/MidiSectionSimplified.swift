@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// Simplified MIDI Synthesis Section using SonixMidiSynthesizer.create().
 ///

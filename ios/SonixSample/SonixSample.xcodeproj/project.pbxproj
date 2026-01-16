@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F32D7732EE601F4001641DC /* sonix.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD77A6F2EE6000000A1D752 /* sonix.xcframework */; };
-		9F32D7742EE601F4001641DC /* sonix.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD77A6F2EE6000000A1D752 /* sonix.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F32D7732EE601F4001641DC /* vozos.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD77A6F2EE6000000A1D752 /* vozos.xcframework */; };
+		9F32D7742EE601F4001641DC /* vozos.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD77A6F2EE6000000A1D752 /* vozos.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +18,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9F32D7742EE601F4001641DC /* sonix.xcframework in Embed Frameworks */,
+				9F32D7742EE601F4001641DC /* vozos.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		9FD77A552EE5FBFF00A1D752 /* SonixSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SonixSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9FD77A6F2EE6000000A1D752 /* sonix.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = sonix.xcframework; sourceTree = "<group>"; };
+		9FD77A6F2EE6000000A1D752 /* vozos.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = vozos.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -43,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F32D7732EE601F4001641DC /* sonix.xcframework in Frameworks */,
+				9F32D7732EE601F4001641DC /* vozos.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,7 +70,7 @@
 		9FD77A6E2EE6000000A1D752 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9FD77A6F2EE6000000A1D752 /* sonix.xcframework */,
+				9FD77A6F2EE6000000A1D752 /* vozos.xcframework */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";

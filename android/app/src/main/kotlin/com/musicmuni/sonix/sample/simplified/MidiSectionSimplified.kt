@@ -6,10 +6,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.musicmuni.sonix.SonixMidiSynthesizer
-import com.musicmuni.sonix.SonixPlayer
-import com.musicmuni.sonix.midi.MidiNote
-import com.musicmuni.sonix.sample.copyAssetToFile
+import com.musicmuni.vozos.sonix.SonixMidiSynthesizer
+import com.musicmuni.vozos.sonix.SonixPlayer
+import com.musicmuni.vozos.sonix.midi.MidiNote
+import com.musicmuni.vozos.sonix.sample.copyAssetToFile
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive

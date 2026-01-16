@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// Simplified Multi-Track Section using SonixMixer.create().
 ///

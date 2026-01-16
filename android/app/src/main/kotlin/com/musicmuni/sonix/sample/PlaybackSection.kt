@@ -7,8 +7,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.musicmuni.sonix.SonixPlayer
-import com.musicmuni.sonix.sample.components.OptionChip
+import com.musicmuni.vozos.sonix.SonixPlayer
+import com.musicmuni.vozos.sonix.sample.components.OptionChip
 import io.github.aakira.napier.Napier
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

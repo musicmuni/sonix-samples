@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 struct PlaybackSection: View {
     @State private var player: SonixPlayer?

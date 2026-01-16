@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// Simplified Playback Section using SonixPlayer.create().
 ///

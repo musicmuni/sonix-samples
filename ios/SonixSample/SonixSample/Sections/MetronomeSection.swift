@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// Advanced Metronome Section using SonixMetronome.Builder().
 ///

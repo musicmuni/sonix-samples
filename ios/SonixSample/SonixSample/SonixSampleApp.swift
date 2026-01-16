@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 @main
 struct SonixSampleApp: App {

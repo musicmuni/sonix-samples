@@ -11,9 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.musicmuni.sonix.SonixMetronome
-import com.musicmuni.sonix.sample.components.OptionChip
-import com.musicmuni.sonix.sample.copyAssetToFile
+import com.musicmuni.vozos.sonix.SonixMetronome
+import com.musicmuni.vozos.sonix.sample.components.OptionChip
+import com.musicmuni.vozos.sonix.sample.copyAssetToFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

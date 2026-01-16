@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// Parser Section demonstrating pitch, notes, and transcription file parsing.
 ///

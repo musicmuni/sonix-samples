@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// Advanced Multi-Track Section using SonixMixer.Builder().
 ///

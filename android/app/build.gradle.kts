@@ -57,8 +57,8 @@ android {
 }
 
 dependencies {
-    // Sonix library
-    implementation(files("libs/sonix.aar"))
+    // VozOS library (unified sonix + calibra)
+    implementation(files("libs/vozos.aar"))
 
     // Required by Sonix
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")

@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// API mode toggle: Simple (new Sonix facade) vs Advanced (low-level APIs)
 enum ApiMode {

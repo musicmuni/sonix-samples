@@ -9,8 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
-import com.musicmuni.sonix.SonixRecorder
-import com.musicmuni.sonix.sample.components.OptionChip
+import com.musicmuni.vozos.sonix.SonixRecorder
+import com.musicmuni.vozos.sonix.sample.components.OptionChip
 import java.io.File
 
 /**

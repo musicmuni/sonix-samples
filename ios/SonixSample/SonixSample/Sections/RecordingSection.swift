@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 import AVFoundation
 
 /// Recording Section using the unified SonixRecorder Builder API.

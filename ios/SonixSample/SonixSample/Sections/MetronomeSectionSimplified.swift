@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// Simplified Metronome Section using SonixMetronome.create().
 ///

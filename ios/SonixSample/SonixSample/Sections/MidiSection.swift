@@ -1,5 +1,5 @@
 import SwiftUI
-import sonix
+import vozos
 
 /// MIDI Synthesis Section using SonixMidiSynthesizer.Builder.
 ///

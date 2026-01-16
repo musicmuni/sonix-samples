@@ -16,10 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
-import com.musicmuni.sonix.Sonix
-import com.musicmuni.sonix.SonixKilledException
-import com.musicmuni.sonix.sample.components.OptionChip
-import com.musicmuni.sonix.sample.simplified.*
+import com.musicmuni.vozos.sonix.Sonix
+import com.musicmuni.vozos.sonix.SonixKilledException
+import com.musicmuni.vozos.sonix.sample.components.OptionChip
+import com.musicmuni.vozos.sonix.sample.simplified.*
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier
 
