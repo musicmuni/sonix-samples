@@ -72,9 +72,9 @@ struct ParserSection: View {
 
             // Parser.parsePitchString() - uses Swift extension for clean API
             if let data = Parser.parsePitchString(content: content) {
-                // Convert KotlinFloatArray to Swift [Float]
-                let times = (0..<data.times.size).map { data.times.get(index: $0) }
-                let pitches = (0..<data.pitchesHz.size).map { data.pitchesHz.get(index: $0) }
+                // Swift extensions return native [Float] arrays directly
+                let times = data.times
+                let pitches = data.pitchesHz
 
                 let minTime = times.min() ?? 0
                 let maxTime = times.max() ?? 0
@@ -110,10 +110,10 @@ struct ParserSection: View {
 
             // Parser.parseNotesString() - uses Swift extension for clean API
             if let data = Parser.parseNotesString(content: content) {
-                // Convert Kotlin arrays to Swift arrays (explicitly convert NSString to String)
-                let labels: [String] = (0..<data.labels.size).map { String(data.labels.get(index: $0) ?? "") }
-                let startTimes = (0..<data.startTimes.size).map { data.startTimes.get(index: $0) }
-                let endTimes = (0..<data.endTimes.size).map { data.endTimes.get(index: $0) }
+                // Swift extensions return native Swift arrays directly
+                let labels = data.labels
+                let startTimes = data.startTimes
+                let endTimes = data.endTimes
 
                 let uniqueLabels = Set(labels)
                 let minStart = startTimes.min() ?? 0

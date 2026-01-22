@@ -6,14 +6,19 @@ struct SonixSampleApp: App {
     @State private var licenseError: String? = nil
 
     init() {
-        // Initialize Sonix logging first to see debug output in Xcode console
-        Sonix.initializeLogging()
+        // Initialize VozOS logging first to see debug output in Xcode console
+        VozOS.initializeLogging()
 
-        // Initialize Sonix SDK with API key from Config
+        // Initialize VozOS SDK with API key
         // This validates the API key synchronously and throws if invalid
+        //
+        // To run this sample:
+        // 1. Create a file named "Config.swift" in this directory
+        // 2. Add: enum Config { static let apiKey = "sk_test_your_key_here" }
+        // 3. Get your API key from https://musicmuni.com
         do {
-            try Sonix.initialize(apiKey: Config.sonixAPIKey)
-        } catch let error as SonixKilledException {
+            try VozOS.initialize(apiKey: Config.apiKey)
+        } catch let error as VozOSKilledException {
             // Store error for display
             _licenseError = State(initialValue: error.message ?? "Invalid or revoked API key")
         } catch {
